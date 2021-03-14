@@ -1,5 +1,4 @@
 import gallery from './gallery-items.js';
-
 import addArrGaller from './fun-modal.js';
 
 const createGaller = addArrGaller(gallery);
@@ -9,11 +8,9 @@ const substitutionImgRef = document.querySelector('img.lightbox__image');
 const closeModalRef = document.querySelector('button[data-action]');
 const modaleOverlayRef = document.querySelector('div.lightbox__overlay');
 
-
 arrGallery.addEventListener('click', originalImgRef);
 closeModalRef.addEventListener('click', closeModal)
 modaleOverlayRef.addEventListener('click',closeModal)
-
 
 const createDivGaller = arrGallery.insertAdjacentHTML('beforeend', createGaller);
 function originalImgRef(event) {
@@ -36,7 +33,6 @@ function openModal(imgOriginal, imgAlt, imgIndex) {
     window.addEventListener('keydown', event => windowControl(event));
 };
 
-
 function closeModal() {
     modalRef.classList.remove('is-open');
     delete substitutionImgRef.dataset.index;
@@ -44,7 +40,6 @@ function closeModal() {
     substitutionImgRef.alt = "";
     window.addEventListener('keydown', event => windowControl(event));
 };
-
 
 function windowControl(e) {
     if (e.code === 'Escape') {
