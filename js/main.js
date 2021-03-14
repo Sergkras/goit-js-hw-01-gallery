@@ -12,21 +12,6 @@ arrGallery.addEventListener('click', originalImgRef);
 closeModalRef.addEventListener('click', closeModal)
 modaleOverlayRef.addEventListener('click',closeModal)
 
-function addArrGaller(gallery) {
-    const arrGal = gallery.map(({ original, preview, description }) => {
-        return `<li class="gallery__item">
-  <a class="gallery__link" href="${original}">
-    <img class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`;
-  });
-    return arrGal.join("");
-};
-
 const createDivGaller = arrGallery.insertAdjacentHTML('beforeend', createGaller);
 function originalImgRef(event) {
     event.preventDefault();
@@ -51,6 +36,8 @@ function openModal(imgOriginal, imgAlt, imgIndex) {
 function closeModal() {
     modalRef.classList.remove('is-open');
     delete substitutionImgRef.dataset.index;
+    substitutionImgRef.src = "";
+    substitutionImgRef.alt = "";
     window.addEventListener('keydown', event => windowControl(event));
 };
 
