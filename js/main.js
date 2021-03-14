@@ -1,4 +1,5 @@
 import gallery from './gallery-items.js';
+import addArrGaller from './fun-modal.js';
 
 const createGaller = addArrGaller(gallery);
 const arrGallery = document.querySelector('ul.js-gallery'); // Галерея изображений
