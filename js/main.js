@@ -1,17 +1,19 @@
 import gallery from './gallery-items.js';
+
 import addArrGaller from './fun-modal.js';
 
 const createGaller = addArrGaller(gallery);
-const arrGallery = document.querySelector('ul.js-gallery'); // Галерея изображений
-const modalRef = document.querySelector('div.js-lightbox'); // Мадальное окно галереи
-const substitutionImgRef = document.querySelector('img.lightbox__image'); //Подмена атрибута
-const closeModalRef = document.querySelector('button[data-action]'); // Закрытие модального окна
-const modaleOverlayRef = document.querySelector('div.lightbox__overlay'); // Очистка модального окна
+const arrGallery = document.querySelector('ul.js-gallery');
+const modalRef = document.querySelector('div.js-lightbox');
+const substitutionImgRef = document.querySelector('img.lightbox__image');
+const closeModalRef = document.querySelector('button[data-action]');
+const modaleOverlayRef = document.querySelector('div.lightbox__overlay');
 
 
 arrGallery.addEventListener('click', originalImgRef);
 closeModalRef.addEventListener('click', closeModal)
 modaleOverlayRef.addEventListener('click',closeModal)
+
 
 const createDivGaller = arrGallery.insertAdjacentHTML('beforeend', createGaller);
 function originalImgRef(event) {
@@ -34,6 +36,7 @@ function openModal(imgOriginal, imgAlt, imgIndex) {
     window.addEventListener('keydown', event => windowControl(event));
 };
 
+
 function closeModal() {
     modalRef.classList.remove('is-open');
     delete substitutionImgRef.dataset.index;
@@ -41,6 +44,7 @@ function closeModal() {
     substitutionImgRef.alt = "";
     window.addEventListener('keydown', event => windowControl(event));
 };
+
 
 function windowControl(e) {
     if (e.code === 'Escape') {
